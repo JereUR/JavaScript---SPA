@@ -1,22 +1,12 @@
+import { Loader } from "./components/Loader.js";
+import { Title } from "./components/Title.js";
 import { ajax } from "./helpers/ajax.js";
 import api from "./helpers/wp_api.js";
 
 export function App() {
-  document.getElementById("root").innerHTML = `<h1>SPA Text</h1>`;
+  const d = document,
+    $root = d.getElementById("root");
+  $root.appendChild(Title());
+  $root.appendChild(Loader());
 
-  ajax({
-    url: api.POSTS,
-    cbSuccess: (posts) => {
-      console.log(posts);
-    },
-  });
-
-  ajax({
-    url: api.CATEGORIES,
-    cbSuccess: (categories) => {
-      console.log(categories);
-    },
-  });
-
-  console.log(api);
 }
