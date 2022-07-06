@@ -1,2 +1,2 @@
 # JavaScript-SPA
-JavaScript Exercises implementing SIngle Page Applications (SPA
+JavaScript Exercises implementing Single Page Applications (SPA
