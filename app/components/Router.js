@@ -1,5 +1,6 @@
 import { ajax } from "../helpers/ajax.js";
 import api from "../helpers/wp_api.js";
+import { Post } from "./Post.js";
 import { PostCard } from "./PostCard.js";
 
 export async function Router() {
@@ -28,6 +29,12 @@ export async function Router() {
   } else {
     $main.innerHTML =
       "<h2>Aquí cargará el contenido del Post seleccionado</h2>";
+    await ajax({
+      url: `${api.POST}/${localStorage.getItem("wpPostId")}`,
+      cbSuccess: (post) => {
+        $main.innerHTML = Post(post);
+      },
+    });
   }
 
   d.querySelector(".loader").style.display = "none";
